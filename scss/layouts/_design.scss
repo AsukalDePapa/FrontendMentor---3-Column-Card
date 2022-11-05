@@ -1,0 +1,114 @@
+@use '../utils/functions' as f;
+@use '../utils/fonts' as font;
+@use '../utils/breakpoints' as bp;
+
+main {
+    margin-inline: auto;
+    width: min(100%, f.rem(300));
+    height: fit-content;
+    border-radius: f.rem(20);
+    margin-bottom: f.rem(32);
+    // transition: width 1s ease-out;
+
+    @include bp.breakpointMin(large){
+        width: min(100%, f.rem(1000));
+        height: f.rem(500);
+        display: grid;
+        grid-template-areas: 
+        "sedan suvs luxury";
+    }
+}
+
+.icon {
+    margin-bottom: f.rem(32);
+}
+
+.padding {
+    padding: f.rem(34) f.rem(34) f.rem(64);
+    position: relative;
+
+    @include bp.breakpointMin(large) {
+        padding: f.rem(70);
+    }
+}
+
+h2 {
+    font-size: f.rem(28);
+    text-transform: uppercase;
+    color: var(--head-txt-clr);
+    margin-bottom: f.rem(24);
+
+    @include bp.breakpointMin(large) {
+        margin-bottom: f.rem(32);
+    }
+}
+
+p {
+    color: var(--sub-txt-clr);
+    margin-bottom: f.rem(32);
+    line-height: 1.6;
+}
+
+.sedan {
+    background-color: var(--sedan-bg-clr);
+    border-radius: f.rem(8) f.rem(8) 0 0;
+
+    a {
+        color: var(--sedan-txt-clr);
+
+        &:hover {
+            border: var(--btn-border-clr) 2px solid;        
+            background: transparent;
+            color: white;
+        }
+    }
+
+    @include bp.breakpointMin(large) {
+        border-radius: f.rem(8) 0 0  f.rem(8);
+    }
+}
+
+.suvs {
+    background-color: var(--suvs-bg-clr);
+
+    a {
+        color: var(--suvs-txt-clr);
+
+        &:hover {
+            border: var(--btn-border-clr) 2px solid;        
+            background: transparent;
+            color: white;
+        }
+    }
+}
+
+.luxury {
+    background-color: var(--luxury-bg-clr);
+    border-radius: 0 0 f.rem(8) f.rem(8);
+
+    a {
+        color: var(--luxury-txt-clr);
+
+        &:hover {
+            border: var(--btn-border-clr) 2px solid;        
+            background: transparent;
+            color: white;
+        }
+    }
+
+    @include bp.breakpointMin(medium) {
+        border-radius: 0 f.rem(8) f.rem(8) 0;
+    }
+}
+
+.btn {
+    background: var(--btn-bg-clr);
+    padding: f.rem(16) f.rem(32);
+    border-radius: f.rem(50);
+    font-family: font.$lexend-deca;
+
+    @include bp.breakpointMin(large) {
+        position: absolute;
+        bottom: 10%;
+    }
+}

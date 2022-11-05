@@ -1,0 +1,85 @@
+@use '../utils/functions' as f;
+@use '../utils/fonts' as font;
+@use '../utils/breakpoints' as bp;
+
+footer {
+    position: absolute;
+    bottom: 1%;
+    left: 50%;
+    transform: translate(-50%);
+    
+    @include bp.breakpointMin(large) {
+        bottom: 5%;
+    }
+}
+
+.attribution { 
+    font-size: f.rem(12); 
+    text-align: center; 
+    font-family: font.$lexend-deca;
+
+    @include bp.breakpointMin(large) {
+        font-size: f.rem(14); 
+    }
+}
+.attribution { 
+    a {
+        font-size: f.rem(14);
+        color: hsl(228, 45%, 44%); 
+        position: relative;
+        font-family: font.$big-shoulders;
+
+        @include bp.breakpointMin(large) {
+            font-size: f.rem(16); 
+        }
+    }
+
+    .frontendMentor{
+        color: var(--sedan-bg-clr);
+
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            margin-inline: auto;
+            height: f.rem(2);
+            width: 0;
+            background-color: var(--sedan-bg-clr);
+            transition: width .5s ease-in-out;
+        }
+
+        &:hover::after {
+            width: 100%;
+        }
+    }
+
+    .name {
+        color: var(--suvs-bg-clr);
+
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            width: 0;
+            margin-inline: auto;
+            height: f.rem(2);
+            width: 0;
+            background: linear-gradient(to right, var(--suvs-bg-clr), var(--luxury-bg-clr));
+            transition: width .5s ease-in-out;
+        }
+
+        &:hover::after {
+            width: 100%;
+        }
+
+        span {
+            color: var(--luxury-bg-clr);
+        }
+    }
+}

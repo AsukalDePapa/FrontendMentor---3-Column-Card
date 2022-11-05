@@ -1,0 +1,25 @@
+@use '../utils/functions' as f;
+@use '../utils/breakpoints' as bp;
+@use '../utils/fonts' as font;
+
+html {
+    box-sizing: border-box;
+    font-size: 100%;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    position: relative;
+    margin: 0;
+    padding: f.rem(48) 0;
+    background-color: var(--bg-clr);
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
+    font-family: font.$big-shoulders;
+}
